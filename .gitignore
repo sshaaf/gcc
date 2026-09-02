@@ -45,3 +45,4 @@ openspec/changes/archive/
 
 # kilo local config (CLI tool state)
 .kilocode/
+.env*
