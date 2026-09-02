@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: "Glostrup Cricket Club — Est. 1959",
   description:
     "Glostrup Cricket Club, founded 2 April 1959, plays out of Solvangsparken in Glostrup, Denmark. Two-time Danish champion.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-64.png", type: "image/png", sizes: "64x64" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

@@ -10,7 +10,7 @@ export async function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="crest">
-              <Crest size={38} />
+              <Crest size={42} />
               <span className="crest-name">
                 <span className="top" style={{ fontSize: 16 }}>
                   Glostrup
