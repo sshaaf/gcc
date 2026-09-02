@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glostrup Cricket Club — Est. 1959</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500..900&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pitch:#0A1A4A;          /* royal blue (deep) */
+    --pitch-2:#0F2470;
+    --pitch-3:#14308F;
+    --grass:#1E3CB0;
+    --gold:#D9A93C;
+    --gold-bright:#F0C15A;
+    --chalk:#F5F2E9;          /* boundary-line white */
+    --chalk-dim:rgba(245,242,233,0.62);
+    --line:rgba(245,242,233,0.14);
+    --red:#C8102E;            /* Danish red (Dannebrog) */
+    --display:'Archivo', sans-serif;
+    --cond:'Barlow Condensed', sans-serif;
+    --body:'Barlow', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--pitch);
+    color:var(--chalk);
+    font-family:var(--body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--gold); color:var(--pitch);}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  .disp{
+    font-family:var(--display);
+    font-variation-settings:'wdth' 125;
+    font-weight:850;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.95;
+  }
+  .kicker{
+    font-family:var(--cond);
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  /* ══ TOP BAR ══ */
+  .topbar{
+    background:var(--pitch-2);
+    border-bottom:1px solid var(--line);
+    font-family:var(--cond);
+    font-size:13px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+  }
+  .topbar-inner{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:7px 28px;
+    color:var(--chalk-dim);
+  }
+  .topbar .live-dot{
+    display:inline-block; width:7px; height:7px; border-radius:50%;
+    background:var(--red); margin-right:8px;
+    animation:blink 1.6s infinite;
+  }
+  @keyframes blink{50%{opacity:0.3;}}
+
+  /* ══ NAV ══ */
+  header.nav{
+    position:sticky; top:0; z-index:60;
+    background:rgba(10,26,74,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 28px;
+    height:74px;
+  }
+  .crest{
+    display:flex; align-items:center; gap:13px;
+  }
+  .crest-badge{
+    width:46px; height:52px; flex-shrink:0;
+    display:grid; place-items:center;
+  }
+  .crest-badge svg{width:100%; height:100%;}
+  .crest-name{
+    font-family:var(--cond); font-weight:700; text-transform:uppercase;
+    line-height:1.05;
+  }
+  .crest-name .top{font-size:19px; letter-spacing:0.06em;}
+  .crest-name .sub{font-size:11px; letter-spacing:0.3em; color:var(--gold);}
+  nav.main-links{display:flex; gap:4px;}
+  nav.main-links a{
+    font-family:var(--cond); font-weight:600; font-size:15px;
+    letter-spacing:0.1em; text-transform:uppercase;
+    padding:10px 16px;
+    color:var(--chalk-dim);
+    border-bottom:2px solid transparent;
+    transition:color .15s, border-color .15s;
+  }
+  nav.main-links a:hover{color:var(--chalk); border-color:var(--gold);}
+  .btn{
+    font-family:var(--cond); font-weight:700; font-size:14.5px;
+    letter-spacing:0.14em; text-transform:uppercase;
+    padding:12px 22px;
+    display:inline-block;
+    transition:transform .12s, background .15s, color .15s;
+    cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-gold{background:var(--gold); color:var(--pitch);}
+  .btn-gold:hover{background:var(--gold-bright);}
+  .btn-line{border-color:var(--chalk-dim); color:var(--chalk);}
+  .btn-line:hover{border-color:var(--gold); color:var(--gold);}
+  .hide-m{display:flex;}
+
+  /* ══ HERO ══ */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+    background:
+      linear-gradient(180deg, rgba(10,26,74,0.2), rgba(10,26,74,0.65)),
+      repeating-linear-gradient(90deg, var(--pitch) 0 90px, var(--pitch-2) 90px 180px);
+  }
+  .hero::after{ /* boundary rope arc */
+    content:"";
+    position:absolute; left:50%; bottom:-42vw;
+    width:120vw; height:60vw;
+    transform:translateX(-50%);
+    border-radius:50% 50% 0 0 / 100% 100% 0 0;
+    border-top:2px solid rgba(245,242,233,0.22);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    padding:96px 28px 120px;
+    max-width:1180px; margin:0 auto;
+  }
+  .hero h1{
+    font-size:clamp(52px, 9vw, 128px);
+    margin:20px 0 8px;
+  }
+  .hero h1 .row2{color:transparent; -webkit-text-stroke:1.5px var(--chalk); }
+  .hero .est{
+    font-family:var(--cond); font-weight:600;
+    font-size:clamp(15px,1.8vw,20px);
+    letter-spacing:0.34em; text-transform:uppercase;
+    color:var(--chalk-dim);
+    margin-bottom:34px;
+  }
+  .hero .est b{color:var(--gold); font-weight:700;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-stats{
+    position:relative;
+    margin-top:64px;
+    display:flex; gap:0;
+    border:1px solid var(--line);
+    background:rgba(10,26,74,0.65);
+    backdrop-filter:blur(6px);
+    max-width:760px;
+  }
+  .hstat{
+    flex:1;
+    padding:20px 24px;
+    border-right:1px solid var(--line);
+  }
+  .hstat:last-child{border-right:none;}
+  .hstat .num{
+    font-family:var(--display);
+    font-variation-settings:'wdth' 125;
+    font-weight:850;
+    font-size:34px;
+    color:var(--gold);
+    line-height:1;
+  }
+  .hstat .lbl{
+    font-family:var(--cond); font-size:12.5px; font-weight:600;
+    letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--chalk-dim);
+    margin-top:6px;
+  }
+
+  /* ══ MATCH CENTRE ══ */
+  .match-centre{
+    background:var(--chalk);
+    color:var(--pitch);
+    border-bottom:6px solid var(--gold);
+  }
+  .mc-inner{
+    max-width:1180px; margin:0 auto;
+    padding:0 28px;
+    display:grid;
+    grid-template-columns:1fr 1.6fr 1fr;
+    align-items:stretch;
+  }
+  .mc-label{
+    display:flex; flex-direction:column; justify-content:center;
+    padding:34px 28px 34px 0;
+    border-right:1px solid rgba(10,26,74,0.15);
+  }
+  .mc-label .kicker{color:var(--red);}
+  .mc-label h2{
+    font-family:var(--cond); font-weight:700; font-size:26px;
+    text-transform:uppercase; letter-spacing:0.04em;
+    margin-top:6px;
+  }
+  .mc-fixture{
+    display:flex; align-items:center; justify-content:center; gap:34px;
+    padding:34px 20px;
+  }
+  .mc-team{
+    text-align:center;
+    font-family:var(--cond); font-weight:700; font-size:22px;
+    text-transform:uppercase; letter-spacing:0.04em;
+    line-height:1.15;
+    min-width:120px;
+  }
+  .mc-team small{
+    display:block;
+    font-size:12px; font-weight:600; letter-spacing:0.2em;
+    color:rgba(10,26,74,0.55);
+    margin-top:4px;
+  }
+  .mc-vs{
+    font-family:var(--display);
+    font-variation-settings:'wdth' 125;
+    font-weight:850; font-size:40px;
+    color:var(--red);
+  }
+  .mc-meta{
+    display:flex; flex-direction:column; justify-content:center; align-items:flex-end;
+    gap:10px;
+    padding:34px 0 34px 28px;
+    border-left:1px solid rgba(10,26,74,0.15);
+    font-family:var(--cond); font-weight:600; font-size:15px;
+    letter-spacing:0.08em; text-transform:uppercase;
+    text-align:right;
+  }
+  .mc-meta .when{font-size:19px; font-weight:700;}
+  .mc-meta .where{color:rgba(10,26,74,0.6);}
+
+  /* ══ SECTIONS ══ */
+  section{padding:88px 0;}
+  .section-head{
+    display:flex; align-items:flex-end; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
+    margin-bottom:46px;
+  }
+  .section-head h2{font-size:clamp(30px,4vw,46px);}
+  .section-head .more{
+    font-family:var(--cond); font-weight:600; font-size:15px;
+    letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--gold);
+    border-bottom:1px solid var(--gold);
+    padding-bottom:2px;
+  }
+
+  /* teams */
+  .team-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  .team-card{
+    position:relative;
+    background:var(--pitch-2);
+    border:1px solid var(--line);
+    padding:28px 22px 24px;
+    overflow:hidden;
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .team-card:hover{transform:translateY(-4px); border-color:var(--gold);}
+  .team-card .jersey{
+    position:absolute; right:-8px; top:-18px;
+    font-family:var(--display);
+    font-variation-settings:'wdth' 125;
+    font-weight:850; font-size:96px;
+    color:rgba(245,242,233,0.06);
+    line-height:1;
+    user-select:none;
+  }
+  .team-card h3{
+    font-family:var(--cond); font-weight:700; font-size:22px;
+    text-transform:uppercase; letter-spacing:0.05em;
+    margin-bottom:8px;
+    position:relative;
+  }
+  .team-card p{font-size:14px; color:var(--chalk-dim); position:relative; margin-bottom:16px;}
+  .medal{
+    display:inline-flex; align-items:center; gap:7px;
+    font-family:var(--cond); font-weight:600; font-size:12.5px;
+    letter-spacing:0.12em; text-transform:uppercase;
+    padding:5px 10px;
+    border:1px solid var(--line);
+    color:var(--gold);
+  }
+  .medal::before{content:""; width:8px; height:8px; border-radius:50%; background:var(--gold);}
+  .medal.silver{color:#C9CDD4;}
+  .medal.silver::before{background:#C9CDD4;}
+  .medal.bronze{color:#C58A5A;}
+  .medal.bronze::before{background:#C58A5A;}
+
+  /* ══ HONOURS ══ */
+  .honours{
+    background:var(--pitch-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .honours-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .honours .big-year{
+    font-family:var(--display);
+    font-variation-settings:'wdth' 125;
+    font-weight:850;
+    font-size:clamp(90px, 12vw, 170px);
+    line-height:0.9;
+    color:transparent;
+    -webkit-text-stroke:1.5px var(--gold);
+  }
+  .honours .big-year span{color:var(--gold); -webkit-text-stroke:0;}
+  .honour-list{list-style:none;}
+  .honour-list li{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+    font-family:var(--cond);
+  }
+  .honour-list li:first-child{border-top:1px solid var(--line);}
+  .honour-list .title{
+    font-weight:700; font-size:19px; text-transform:uppercase; letter-spacing:0.05em;
+  }
+  .honour-list .yrs{
+    font-weight:600; font-size:15px; letter-spacing:0.1em;
+    color:var(--gold);
+  }
+  .honours p.note{margin-top:22px; color:var(--chalk-dim); font-size:14.5px; max-width:440px;}
+
+  /* ══ GROUND ══ */
+  .ground-band{
+    position:relative;
+    overflow:hidden;
+    padding:110px 0;
+    background:
+      linear-gradient(rgba(10,26,74,0.78), rgba(10,26,74,0.9)),
+      repeating-linear-gradient(0deg, var(--grass) 0 60px, var(--pitch-3) 60px 120px);
+  }
+  .ground-band .oval{
+    position:absolute; inset:-30% -10%;
+    border:2px solid rgba(245,242,233,0.1);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .ground-inner{position:relative; max-width:760px;}
+  .ground-inner h2{font-size:clamp(32px,4.6vw,54px); margin:16px 0 18px;}
+  .ground-inner p{font-size:17px; color:var(--chalk-dim); margin-bottom:12px;}
+  .ground-inner .addr{
+    font-family:var(--cond); font-weight:600; font-size:15px;
+    letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold);
+    margin-top:22px;
+  }
+
+  /* ══ NEWS ══ */
+  .news-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:18px;
+  }
+  .news-card{
+    background:var(--pitch-2);
+    border:1px solid var(--line);
+    padding:26px 24px;
+    display:flex; flex-direction:column;
+    transition:border-color .18s;
+  }
+  .news-card:hover{border-color:var(--gold);}
+  .news-card.lead-card{
+    background:linear-gradient(150deg, var(--pitch-3), var(--pitch-2));
+  }
+  .news-card .tag{
+    font-family:var(--cond); font-weight:600; font-size:12px;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  .news-card h3{
+    font-family:var(--cond); font-weight:700;
+    text-transform:uppercase; letter-spacing:0.03em;
+    font-size:21px; line-height:1.2;
+    margin-bottom:12px;
+  }
+  .news-card.lead-card h3{font-size:28px;}
+  .news-card p{font-size:14px; color:var(--chalk-dim); flex:1;}
+  .news-card .date{
+    font-family:var(--cond); font-size:13px; font-weight:600;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--chalk-dim);
+    margin-top:20px;
+  }
+
+  /* ══ JOIN ══ */
+  .join{
+    background:var(--gold);
+    color:var(--pitch);
+  }
+  .join-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:32px; flex-wrap:wrap;
+  }
+  .join h2{font-size:clamp(30px,4.4vw,50px);}
+  .join p{
+    font-family:var(--cond); font-weight:600; font-size:17px;
+    letter-spacing:0.06em; text-transform:uppercase;
+    margin-top:8px; color:rgba(10,26,74,0.75);
+  }
+  .join .btn-dark{
+    background:var(--pitch); color:var(--chalk);
+    font-size:16px; padding:16px 30px;
+  }
+  .join .btn-dark:hover{background:var(--pitch-2);}
+
+  /* ══ FOOTER ══ */
+  footer{
+    background:#06123C;
+    border-top:1px solid var(--line);
+    padding:64px 0 36px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:36px;
+    margin-bottom:48px;
+  }
+  .footer-brand p{color:var(--chalk-dim); font-size:14px; margin-top:14px; max-width:280px;}
+  .footer-col h4{
+    font-family:var(--cond); font-weight:700; font-size:13px;
+    letter-spacing:0.24em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:16px;
+  }
+  .footer-col a, .footer-col span{
+    display:block; font-size:14px; color:var(--chalk-dim); margin-bottom:10px;
+  }
+  .footer-col a:hover{color:var(--chalk);}
+  .footer-bottom{
+    border-top:1px solid var(--line);
+    padding-top:26px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:var(--cond); font-size:13px; font-weight:600;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--chalk-dim);
+  }
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  @media (max-width: 960px){
+    nav.main-links{display:none;}
+    .mc-inner{grid-template-columns:1fr;}
+    .mc-label{border-right:none; border-bottom:1px solid rgba(10,26,74,0.15); padding:26px 0 20px;}
+    .mc-meta{border-left:none; border-top:1px solid rgba(10,26,74,0.15); align-items:flex-start; text-align:left; padding:20px 0 30px;}
+    .team-grid{grid-template-columns:1fr 1fr;}
+    .honours-grid{grid-template-columns:1fr; gap:36px;}
+    .news-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .hero-stats{flex-wrap:wrap;}
+    .hstat{min-width:45%;}
+  }
+  @media (max-width: 560px){
+    .team-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .hide-m{display:none;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    .topbar .live-dot{animation:none;}
+    .btn:hover, .team-card:hover{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span><span class="live-dot"></span>DM Elitedivision · Season 2026</span>
+    <span class="hide-m">Solvangsparken · Glostrup · Danmark</span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#" class="crest">
+      <span class="crest-badge">
+        <svg viewBox="0 0 46 52">
+          <path d="M23 1 L44 9 V30 C44 42 34 49 23 51 C12 49 2 42 2 30 V9 Z" fill="#0F2470" stroke="#D9A93C" stroke-width="2"/>
+          <path d="M15 34 L29 14" stroke="#F5F2E9" stroke-width="3.4" stroke-linecap="round"/>
+          <circle cx="31" cy="33" r="5" fill="#C8102E"/>
+          <path d="M28 31 C30 33 32 33 34 35" stroke="#F5F2E9" stroke-width="1" fill="none"/>
+        </svg>
+      </span>
+      <span class="crest-name">
+        <span class="top">Glostrup</span><br>
+        <span class="sub">Cricket Club</span>
+      </span>
+    </a>
+    <nav class="main-links">
+      <a href="#teams">Teams</a>
+      <a href="#honours">Honours</a>
+      <a href="#ground">The Ground</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-gold" href="#join">Join the Club</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-inner">
+    <p class="kicker">Danish Champions 2008 · 2011</p>
+    <h1 class="disp">Glostrup<br><span class="row2">Cricket Club</span></h1>
+    <p class="est">Siden <b>2. April 1959</b> · Solvangsparken</p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#join">Become a Member</a>
+      <a class="btn btn-line" href="#teams">Our Teams</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="num">2×</div><div class="lbl">Danish Champions</div></div>
+      <div class="hstat"><div class="num">16</div><div class="lbl">DM Medals 1982–2007</div></div>
+      <div class="hstat"><div class="num">67</div><div class="lbl">Years of Cricket</div></div>
+      <div class="hstat"><div class="num">6</div><div class="lbl">Teams, All Ages</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MATCH CENTRE -->
+<div class="match-centre">
+  <div class="mc-inner">
+    <div class="mc-label">
+      <span class="kicker">Match Centre</span>
+      <h2>Next Fixture</h2>
+    </div>
+    <div class="mc-fixture">
+      <div class="mc-team">Glostrup CC<small>Home</small></div>
+      <div class="mc-vs">VS</div>
+      <div class="mc-team">Svanholm CC<small>Away</small></div>
+    </div>
+    <div class="mc-meta">
+      <span class="when">Sat 22 Aug · 11:00</span>
+      <span class="where">Solvangsparken, Glostrup</span>
+    </div>
+  </div>
+</div>
+
+<!-- TEAMS -->
+<section id="teams">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="kicker">The Squad</p>
+        <h2 class="disp">Our Teams</h2>
+      </div>
+      <a class="more" href="#">All fixtures & results</a>
+    </div>
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <span class="jersey">1</span>
+        <h3>Senior Men</h3>
+        <p>Competing at the top of Danish cricket, carrying the tradition of two national titles.</p>
+        <span class="medal">DM Champions ’08 · ’11</span>
+      </div>
+      <div class="team-card">
+        <span class="jersey">W</span>
+        <h3>Women</h3>
+        <p>One of the strongest women's sides in the country, and still climbing.</p>
+        <span class="medal silver">Silver · DM 2025</span>
+      </div>
+      <div class="team-card">
+        <span class="jersey">18</span>
+        <h3>U18 &amp; U15</h3>
+        <p>The next generation, already collecting national medals for the club.</p>
+        <span class="medal bronze">Bronze · DM 2025</span>
+      </div>
+      <div class="team-card">
+        <span class="jersey">13</span>
+        <h3>U13 &amp; Oldboys</h3>
+        <p>From first bat to last over — cricket for every age at Solvangsparken.</p>
+        <span class="medal silver">U13 Silver · DM 2024</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONOURS -->
+<section class="honours" id="honours">
+  <div class="wrap honours-grid">
+    <div class="reveal">
+      <p class="kicker">Honours</p>
+      <div class="big-year">2008<br><span>2011</span></div>
+      <p class="note">In 2008 the long wait ended: Glostrup beat Skanderborg in a replay to take the club's first Danish championship. Three seasons later the title returned — sealed with three rounds to spare.</p>
+    </div>
+    <div class="reveal">
+      <ul class="honour-list">
+        <li><span class="title">Danish Championship</span><span class="yrs">2008 · 2011</span></li>
+        <li><span class="title">DM Silver Medals</span><span class="yrs">12 × (1982–2007)</span></li>
+        <li><span class="title">DM Bronze Medals</span><span class="yrs">4 × (1982–2007)</span></li>
+        <li><span class="title">Women — DM Silver</span><span class="yrs">2025</span></li>
+        <li><span class="title">U18 &amp; U15 — DM Bronze</span><span class="yrs">2025</span></li>
+        <li><span class="title">U13 — DM Silver</span><span class="yrs">2024</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GROUND -->
+<section class="ground-band" id="ground" style="padding:110px 0;">
+  <div class="oval"></div>
+  <div class="wrap">
+    <div class="ground-inner reveal">
+      <p class="kicker">The Ground</p>
+      <h2 class="disp">Denmark's most beautiful cricket ground</h2>
+      <p>Home is Solvangsparken, in the heart of Glostrup — a true cricket oval with a clubhouse, excellent training facilities, and sixty-seven summers of history in the outfield.</p>
+      <p class="addr">Nørre Allé 41 · 2600 Glostrup</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="kicker">Club News</p>
+        <h2 class="disp">Latest from GCC</h2>
+      </div>
+      <a class="more" href="#">All news</a>
+    </div>
+    <div class="news-grid reveal">
+      <a class="news-card lead-card" href="#">
+        <span class="tag">Recognition</span>
+        <h3>GCC honoured at the Glostrup Sports Gala 2025</h3>
+        <p>The club was celebrated by the municipality for an outstanding pair of seasons — medals across the U13, U15, U18 and women's teams, and national-team call-ups for several players.</p>
+        <span class="date">November 2025</span>
+      </a>
+      <a class="news-card" href="#">
+        <span class="tag">Women's Cricket</span>
+        <h3>Silver at DM 2025</h3>
+        <p>The women's team capped a superb campaign with silver at the Danish championships.</p>
+        <span class="date">September 2025</span>
+      </a>
+      <a class="news-card" href="#">
+        <span class="tag">Youth</span>
+        <h3>Youth medals keep coming</h3>
+        <p>Bronze for both U15 and U18 at DM 2025 — the academy pipeline is delivering.</p>
+        <span class="date">August 2025</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="join" id="join">
+  <div class="wrap join-inner reveal">
+    <div>
+      <h2 class="disp">Your first over starts here</h2>
+      <p>All ages · All levels · Kvinder og herrer · Bats and pads provided</p>
+    </div>
+    <a class="btn btn-dark" href="#contact">Sign up for a trial session</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="crest">
+          <span class="crest-badge" style="width:38px;height:44px;">
+            <svg viewBox="0 0 46 52">
+              <path d="M23 1 L44 9 V30 C44 42 34 49 23 51 C12 49 2 42 2 30 V9 Z" fill="#0F2470" stroke="#D9A93C" stroke-width="2"/>
+              <path d="M15 34 L29 14" stroke="#F5F2E9" stroke-width="3.4" stroke-linecap="round"/>
+              <circle cx="31" cy="33" r="5" fill="#C8102E"/>
+            </svg>
+          </span>
+          <span class="crest-name">
+            <span class="top" style="font-size:16px;">Glostrup</span><br>
+            <span class="sub">Cricket Club</span>
+          </span>
+        </div>
+        <p>A club built on fællesskab, ambition and friendship — open to everyone, regardless of age or gender. Est. 2 April 1959.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Club</h4>
+        <a href="#teams">Teams</a>
+        <a href="#honours">Honours</a>
+        <a href="#news">News</a>
+        <a href="#">Club shop</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <span>Solvangsparken</span>
+        <span>Nørre Allé 41</span>
+        <span>2600 Glostrup</span>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <span>Chairman: Rocky Chawla</span>
+        <span>Youth: Kamran Ahmed</span>
+        <span>Oldboys: Ole Roland</span>
+        <a href="#">Send a message →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Glostrup Cricket Club</span>
+      <span>Member of Dansk Cricket Forbund since 1960</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
