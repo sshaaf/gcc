@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Crest } from "./Crest";
 
 export function Nav() {
@@ -18,6 +19,12 @@ export function Nav() {
           <a href="#ground">The Ground</a>
           <a href="#news">News</a>
           <a href="#contact">Contact</a>
+          <Link href="/bestyrelsen">Bestyrelsen</Link>
+          <Link href="/kontingent">Kontingent</Link>
+          <Link href="/traening">Træning</Link>
+          <Link href="/bliv-medlem">Bliv Medlem</Link>
+          <Link href="/scorecards">Scorecards</Link>
+          <Link href="/klub-info">Klub Info</Link>
         </nav>
         <a className="btn btn-gold" href="#join">
           Join the Club

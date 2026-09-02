@@ -133,6 +133,48 @@ A `/gallery/<slug>` page is generated automatically.
 - `content/home/page.md` — kicker, title, est. line, CTA labels
 - `content/stats/index.md` — the four hero statistics
 
+### Edit or add a static-info page
+
+Pages live at `content/pages/<slug>.md`, one file per page, no date nesting:
+
+```markdown
+---
+title: "Bestyrelsen"
+date: "2024-03-14"
+---
+
+Bestyrelsen i Glostrup Cricket Club
+…
+```
+
+The page is reachable at `/<slug>` on the next build. The route excludes reserved paths (`/news`, `/gallery`, `/contact`, `/api`, etc.) — if you add a new top-level route, update `RESERVED_SLUGS` in `app/[slug]/page.tsx`.
+
+## WordPress archive import
+
+The site's content tree holds **57 historical posts** and **6 static-info pages** imported from the legacy WordPress site (2016–2024). The import was performed once by `scripts/import-wp.mjs` and the resulting Markdown files are committed to the repo.
+
+### Re-running the import
+
+If you get a new WordPress WXR export (from WP Admin → Tools → Export), re-import with:
+
+```bash
+node scripts/import-wp.mjs path/to/new-export.xml
+```
+
+The script:
+- Reads the WXR XML and parses each `<item>` element.
+- Skips drafts, attachments, nav menu items, and non-post/page types.
+- For each post: writes `content/news/<slug>.md` with remapped frontmatter (`categories[0]` → `tag`, generated `excerpt` if missing) and caption-shortcode-cleaned body.
+- For each page: writes `content/pages/<slug>.md`.
+- Copies all images to `public/wp-images/<YYYY>/<MM>/<original-filename>`.
+- Regenerates `vercel.json` rewrites for legacy permalinks.
+
+Add `--dry-run` to preview without writing files.
+
+### Legacy URL redirects
+
+`vercel.json` contains one rewrite per imported post/page, mapping the old WordPress permalink (`/YYYY/MM/DD/<slug>/`) to the new URL (`/news/<slug>` or `/<slug>`). This preserves external links from search engines, old emails, etc., even after the WordPress site is decommissioned.
+
 ### Update the next fixture
 
 `content/fixtures/next.md`:

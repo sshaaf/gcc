@@ -46,3 +46,8 @@ openspec/changes/archive/
 # kilo local config (CLI tool state)
 .kilocode/
 .env*
+
+# WordPress backup (large; WXR + SQL; one-time import source)
+# The committed content tree under content/** and public/wp-images/** is enough.
+/wordpress-backup/
+.env*

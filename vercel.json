@@ -1,0 +1,256 @@
+{
+  "rewrites": [
+    {
+      "source": "/2017/03/03/hej-verden",
+      "destination": "/news/hej-verden"
+    },
+    {
+      "source": "/2016/10/10/mindeord-flemming-joergensen-er-doed",
+      "destination": "/news/mindeord-flemming-joergensen-er-doed"
+    },
+    {
+      "source": "/2016/09/09/dm-til-glostrups-lilleputter",
+      "destination": "/news/dm-til-glostrups-lilleputter"
+    },
+    {
+      "source": "/2016/09/09/dm-finale-til-lilleputterne",
+      "destination": "/news/dm-finale-til-lilleputterne"
+    },
+    {
+      "source": "/2016/04/04/standerhejsning",
+      "destination": "/news/standerhejsning"
+    },
+    {
+      "source": "/2017/03/03/standerhejsningklargoering",
+      "destination": "/news/standerhejsningklargoering"
+    },
+    {
+      "source": "/2017/04/04/t20-sejr-i-saesonaabner",
+      "destination": "/news/t20-sejr-i-saesonaabner"
+    },
+    {
+      "source": "/2017/04/04/sikker-sejr-over-frem",
+      "destination": "/news/sikker-sejr-over-frem"
+    },
+    {
+      "source": "/2017/09/09/saesonen-2017-er-slut-statistik-afslutningsfest",
+      "destination": "/news/saesonen-2017-er-slut-statistik-afslutningsfest"
+    },
+    {
+      "source": "/2018/02/02/generalforsamlinger-2018",
+      "destination": "/news/generalforsamlinger-2018"
+    },
+    {
+      "source": "/2018/03/03/generalforsamling-2018-endelig-dagsorden",
+      "destination": "/news/generalforsamling-2018-endelig-dagsorden"
+    },
+    {
+      "source": "/2018/03/03/standerhejsning-2",
+      "destination": "/news/standerhejsning-2"
+    },
+    {
+      "source": "/2018/09/09/glostrup-vinder-2-division-og-rykker-op",
+      "destination": "/news/glostrup-vinder-2-division-og-rykker-op"
+    },
+    {
+      "source": "/2019/03/03/generalforsamlinger-2019",
+      "destination": "/news/generalforsamlinger-2019"
+    },
+    {
+      "source": "/2019/03/03/standerhejsning-60-aar",
+      "destination": "/news/standerhejsning-60-aar"
+    },
+    {
+      "source": "/2019/03/03/generalforsamling-2019-endelig-dagsorden",
+      "destination": "/news/generalforsamling-2019-endelig-dagsorden"
+    },
+    {
+      "source": "/2019/06/06/60-aars-jubilaeumsmiddag",
+      "destination": "/news/60-aars-jubilaeumsmiddag"
+    },
+    {
+      "source": "/2020/02/02/generalforsamling-2020",
+      "destination": "/news/generalforsamling-2020"
+    },
+    {
+      "source": "/2020/03/03/coronavirus",
+      "destination": "/news/coronavirus"
+    },
+    {
+      "source": "/2020/04/04/gccs-foedselsdag",
+      "destination": "/news/gccs-foedselsdag"
+    },
+    {
+      "source": "/2020/04/04/statistik-og-scorecards-2019",
+      "destination": "/news/statistik-og-scorecards-2019"
+    },
+    {
+      "source": "/2020/05/05/mulig-opstart-af-turneringerne",
+      "destination": "/news/mulig-opstart-af-turneringerne"
+    },
+    {
+      "source": "/2021/04/04/generalforsamling-2021",
+      "destination": "/news/generalforsamling-2021"
+    },
+    {
+      "source": "/2021/04/04/minforning-klubbens-app",
+      "destination": "/news/minforning-klubbens-app"
+    },
+    {
+      "source": "/2021/04/04/sejre-til-gcc-1-og-gcc-2",
+      "destination": "/news/sejre-til-gcc-1-og-gcc-2"
+    },
+    {
+      "source": "/2021/05/05/sejr-i-t20-mod-kb2",
+      "destination": "/news/sejr-i-t20-mod-kb2"
+    },
+    {
+      "source": "/2021/05/05/turneringen-skudt-i-gang-med-sejr-over-kolding",
+      "destination": "/news/turneringen-skudt-i-gang-med-sejr-over-kolding"
+    },
+    {
+      "source": "/2021/05/05/sejr-century-til-freddy-og-fem-gaerder-til-haroon",
+      "destination": "/news/sejr-century-til-freddy-og-fem-gaerder-til-haroon"
+    },
+    {
+      "source": "/2021/05/05/glostrup-2-vinder-i-holbaek",
+      "destination": "/news/glostrup-2-vinder-i-holbaek"
+    },
+    {
+      "source": "/2021/05/05/nederlag-til-gcc-2-mod-hvidovre-i-t20",
+      "destination": "/news/nederlag-til-gcc-2-mod-hvidovre-i-t20"
+    },
+    {
+      "source": "/2021/05/05/miniputstaevne-i-hoej-sol",
+      "destination": "/news/miniputstaevne-i-hoej-sol"
+    },
+    {
+      "source": "/2021/06/06/sikker-sejr-i-ishoej",
+      "destination": "/news/sikker-sejr-i-ishoej"
+    },
+    {
+      "source": "/2021/06/06/gcc-fik-god-modstand-af-svanholm-2-men-sikker-sejr-alligevel",
+      "destination": "/news/gcc-fik-god-modstand-af-svanholm-2-men-sikker-sejr-alligevel"
+    },
+    {
+      "source": "/2021/06/06/oldboys-vinder-igen-baade-paa-banen-og-paa-terrassen",
+      "destination": "/news/oldboys-vinder-igen-baade-paa-banen-og-paa-terrassen"
+    },
+    {
+      "source": "/2021/06/06/a-warm-victory",
+      "destination": "/news/a-warm-victory"
+    },
+    {
+      "source": "/2021/06/06/tungt-nederlag-til-1-holdet",
+      "destination": "/news/tungt-nederlag-til-1-holdet"
+    },
+    {
+      "source": "/2021/06/06/glostrup-drenge-vinder",
+      "destination": "/news/glostrup-drenge-vinder"
+    },
+    {
+      "source": "/2021/06/06/forholdsvis-nem-sejr-over-copenhagen",
+      "destination": "/news/forholdsvis-nem-sejr-over-copenhagen"
+    },
+    {
+      "source": "/2021/06/06/gcc-2-beats-table-toppers-from-koege",
+      "destination": "/news/gcc-2-beats-table-toppers-from-koege"
+    },
+    {
+      "source": "/2021/06/06/overbevisende-sejr-mod-topholdet",
+      "destination": "/news/overbevisende-sejr-mod-topholdet"
+    },
+    {
+      "source": "/2021/06/06/heavy-rain-heavy-win",
+      "destination": "/news/heavy-rain-heavy-win"
+    },
+    {
+      "source": "/2021/07/07/gcc-2-won-the-game-they-did-everything-to-lose",
+      "destination": "/news/gcc-2-won-the-game-they-did-everything-to-lose"
+    },
+    {
+      "source": "/2021/07/07/gcc-1-naar-det-foerste-maal-og-glenn-vender-tilbage",
+      "destination": "/news/gcc-1-naar-det-foerste-maal-og-glenn-vender-tilbage"
+    },
+    {
+      "source": "/2021/07/07/gcc-1-nederlag-mod-svanholm",
+      "destination": "/news/gcc-1-nederlag-mod-svanholm"
+    },
+    {
+      "source": "/2021/08/08/klokker-masterclass",
+      "destination": "/news/klokker-masterclass"
+    },
+    {
+      "source": "/2021/08/08/revanche-paa-svanholm-park",
+      "destination": "/news/revanche-paa-svanholm-park"
+    },
+    {
+      "source": "/2021/08/08/glostrup-snart-i-maal",
+      "destination": "/news/glostrup-snart-i-maal"
+    },
+    {
+      "source": "/2021/08/08/nederlag-til-gcc-2",
+      "destination": "/news/nederlag-til-gcc-2"
+    },
+    {
+      "source": "/2021/09/09/kolding-vs-glostrup-4-0",
+      "destination": "/news/kolding-vs-glostrup-4-0"
+    },
+    {
+      "source": "/2021/09/09/sikker-sejr-over-ab-efter-kaempe-kollaps",
+      "destination": "/news/sikker-sejr-over-ab-efter-kaempe-kollaps"
+    },
+    {
+      "source": "/2021/09/09/gcc-awards-2021",
+      "destination": "/news/gcc-awards-2021"
+    },
+    {
+      "source": "/2021/09/09/gcc-boedefest",
+      "destination": "/news/gcc-boedefest"
+    },
+    {
+      "source": "/2021/09/09/oprykning-og-sejr-mod-esbjerg",
+      "destination": "/news/oprykning-og-sejr-mod-esbjerg"
+    },
+    {
+      "source": "/2022/02/02/fastelavnsstaevne-2022",
+      "destination": "/news/fastelavnsstaevne-2022"
+    },
+    {
+      "source": "/2022/02/02/generalforsamling-2022",
+      "destination": "/news/generalforsamling-2022"
+    },
+    {
+      "source": "/2023/01/01/hvervekampagne-i-glostrup-cricket-club-ungdom",
+      "destination": "/news/hvervekampagne-i-glostrup-cricket-club-ungdom"
+    },
+    {
+      "source": "/2024/03/03/generalforsamling-2024",
+      "destination": "/news/generalforsamling-2024"
+    },
+    {
+      "source": "/2017/03/03/klub-info",
+      "destination": "/klub-info"
+    },
+    {
+      "source": "/2017/03/03/scorecards",
+      "destination": "/scorecards"
+    },
+    {
+      "source": "/2017/03/03/bestyrelsen",
+      "destination": "/bestyrelsen"
+    },
+    {
+      "source": "/2017/03/03/kontingent",
+      "destination": "/kontingent"
+    },
+    {
+      "source": "/2017/03/03/traening",
+      "destination": "/traening"
+    },
+    {
+      "source": "/2017/03/03/bliv-medlem",
+      "destination": "/bliv-medlem"
+    }
+  ]
+}
