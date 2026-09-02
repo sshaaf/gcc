@@ -40,8 +40,13 @@
 
 ## 8. Navigation update
 
-- [x] 8.1 Update `components/Nav.tsx`: add 6 page links after the existing "Contact" link, ordered Bestyrelsen, Kontingent, Træning, Bliv Medlem, Scorecards, Klub Info.
-- [x] 8.2 Verify on mobile breakpoint (<960px) the nav still hides correctly (existing CSS already does this).
+- [x] 8.1 Update `components/Nav.tsx`: pages do NOT appear in the main nav (move to footer).
+- [x] 8.2 Update `components/Footer.tsx`: add a "Pages" column with 6 page links (Bestyrelsen, Kontingent, Træning, Bliv Medlem, Scorecards, Klub Info), pointing at `/news/<slug>`.
+- [x] 8.3 Move all imported page files from `content/pages/` to `content/news/` so they render under the existing `/news/[slug]` route. Drop the `content/pages/` directory.
+- [x] 8.4 Remove `app/[slug]/page.tsx` and `lib/content/pages.ts`; the `[slug]` route and pages loader are no longer needed.
+- [x] 8.5 Relax the news zod schema so `tag` and `excerpt` are optional (pages don't have them). Update `components/News.tsx` to filter out items without a `tag` so pages don't appear in the home page news cards.
+- [x] 8.6 Update `vercel.json`: page rewrites now point at `/news/<slug>` instead of `/<slug>`.
+- [x] 8.7 Update `app/globals.css`: footer-grid goes from 4 to 5 columns to fit the new "Pages" column.
 - [x] 9.1 Update `lib/constants.ts`: `WORDPRESS_URL = "https://www.glostrupcricket.dk"`.
 - [x] 9.2 Add a code comment explaining the constant must match the live domain and where it's used.
 
