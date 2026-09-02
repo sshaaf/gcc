@@ -295,8 +295,8 @@ for (const post of posts) {
   postCount++;
 
   // Build rewrite: /YYYY/MM/DD/<slug> → /news/<slug>
-  const [_, dd] = dateStr.split("-");
-  const source = `/${yyyy}/${mm}/${dd}/${slug}`;
+  const parts = dateStr.split("-");
+  const source = `/${parts[0]}/${parts[1]}/${parts[2]}/${slug}`;
   REWRITES.push({ source, destination: `/news/${slug}` });
 }
 
@@ -357,8 +357,8 @@ for (const page of pages) {
   pageCount++;
 
   // Rewrite for pages
-  const [_, dd] = dateStr.split("-");
-  const source = `/${yyyy}/${mm}/${dd}/${slug}`;
+  const parts = dateStr.split("-");
+  const source = `/${parts[0]}/${parts[1]}/${parts[2]}/${slug}`;
   REWRITES.push({ source, destination: `/${slug}` });
 }
 
