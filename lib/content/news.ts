@@ -9,8 +9,8 @@ const scorecardRowSchema = z.object({
 const baseNewsFields = {
   title: z.string().min(1),
   date: z.string().min(1),
-  tag: z.string().min(1),
-  excerpt: z.string().min(1),
+  tag: z.string().optional(),
+  excerpt: z.string().optional(),
   lead: z.boolean().optional(),
 };
 

@@ -15,11 +15,13 @@ function formatDate(d: string) {
 }
 
 export async function News() {
-  const news = await getNews();
+  const allNews = await getNews();
+  // Only items with a tag are real posts — pages (static info) live at
+  // /news/<slug> but don't appear in the home page cards.
+  const news = allNews.filter((n) => Boolean(n.tag));
   if (news.length === 0) return null;
 
-  const lead =
-    news.find((n) => n.lead) ?? news[0];
+  const lead = news.find((n) => n.lead) ?? news[0];
   const others = news.filter((n) => n.slug !== lead.slug).slice(0, 2);
 
   return (

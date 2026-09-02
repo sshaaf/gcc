@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getContact } from "@/lib/content";
 import { WORDPRESS_URL } from "@/lib/constants";
 import { Crest } from "./Crest";
@@ -28,6 +29,16 @@ export async function Footer() {
             <a href="#honours">Honours</a>
             <a href="#news">News</a>
             <a href="#sponsors">Sponsors</a>
+          </div>
+
+          <div className="footer-col">
+            <h4>Pages</h4>
+            <Link href="/news/bestyrelsen">Bestyrelsen</Link>
+            <Link href="/news/kontingent">Kontingent</Link>
+            <Link href="/news/traening">Træning</Link>
+            <Link href="/news/bliv-medlem">Bliv Medlem</Link>
+            <Link href="/news/scorecards">Scorecards</Link>
+            <Link href="/news/klub-info">Klub Info</Link>
           </div>
 
           <div className="footer-col">

@@ -59,7 +59,7 @@
 
 ## 13. Commit and deploy
 
-- [ ] 13.1 `git add` content/, public/wp-images/, lib/, components/, app/, scripts/, vercel.json, package.json, README.md.
-- [ ] 13.2 `git commit --no-gpg-sign -m "feat: import WordPress archive (57 posts, 6 pages, 177 images, legacy redirects)"`.
-- [ ] 13.3 `git push` (the GitHub App integration may or may not be wired; if not, run `vercel deploy --prod` manually).
-- [ ] 13.4 Smoke test on production URL: home page News section renders imported posts; one legacy permalink (e.g. `/2017/03/06/hej-verden`) rewrites to `/news/hej-verden`; footer "Legacy site" link points at `glostrupcricket.dk`.
+- [x] 13.1 `git add` content/, public/wp-images/, lib/, components/, app/, scripts/, vercel.json, package.json, README.md.
+- [x] 13.2 `git commit --no-gpg-sign -m "feat: import WordPress archive (57 posts, 6 pages, 177 images, legacy redirects)"`.
+- [x] 13.3 `git push` (the GitHub App integration may or may not be wired; if not, run `vercel deploy --prod` manually).
+- [x] 13.4 Smoke test on production URL: home page News section renders imported posts; one legacy permalink (e.g. `/2017/03/06/hej-verden`) rewrites to `/news/hej-verden`; footer "Legacy site" link points at `glostrupcricket.dk`.

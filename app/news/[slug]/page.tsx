@@ -31,12 +31,15 @@ export default async function NewsPostPage({
 
   const html = await renderMarkdown(post.body);
   const isMatchReport = post.type === "match-report";
+  const isPage = !post.tag;
+  const kicker = isMatchReport ? "Match Report" : isPage ? "Side" : "News";
+  const topbarLabel = post.tag ?? "Glostrup Cricket Club";
 
   return (
     <>
       <div className="topbar">
         <div className="topbar-inner">
-          <span>{post.tag}</span>
+          <span>{topbarLabel}</span>
           <span className="hide-m">Glostrup Cricket Club</span>
         </div>
       </div>
@@ -56,15 +59,17 @@ export default async function NewsPostPage({
       </header>
       <section style={{ padding: "96px 0" }}>
         <div className="wrap news-detail">
-          <p className="kicker">{isMatchReport ? "Match Report" : "News"}</p>
+          <p className="kicker">{kicker}</p>
           <h1 className="disp" style={{ fontSize: "clamp(36px,5vw,56px)" }}>
             {post.title}
           </h1>
-          <p className="meta">
-            {isMatchReport
-              ? `${(post as { opponent: string }).opponent} · ${(post as { result: string }).result}`
-              : post.tag}
-          </p>
+          {!isPage && (
+            <p className="meta">
+              {isMatchReport
+                ? `${(post as { opponent: string }).opponent} · ${(post as { result: string }).result}`
+                : post.tag}
+            </p>
+          )}
           <p className="when">
             {new Date(post.date).toLocaleDateString("en-GB", {
               day: "numeric",

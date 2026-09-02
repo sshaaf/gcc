@@ -230,27 +230,27 @@
     },
     {
       "source": "/2017/03/12/klub-info",
-      "destination": "/klub-info"
+      "destination": "/news/klub-info"
     },
     {
       "source": "/2017/03/12/scorecards",
-      "destination": "/scorecards"
+      "destination": "/news/scorecards"
     },
     {
       "source": "/2017/03/14/bestyrelsen",
-      "destination": "/bestyrelsen"
+      "destination": "/news/bestyrelsen"
     },
     {
       "source": "/2017/03/14/kontingent",
-      "destination": "/kontingent"
+      "destination": "/news/kontingent"
     },
     {
       "source": "/2017/03/14/traening",
-      "destination": "/traening"
+      "destination": "/news/traening"
     },
     {
       "source": "/2017/03/14/bliv-medlem",
-      "destination": "/bliv-medlem"
+      "destination": "/news/bliv-medlem"
     }
   ]
 }
