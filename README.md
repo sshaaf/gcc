@@ -163,7 +163,8 @@ The footer's **Legacy site** link points to the existing WordPress archive at th
 ## Deployment
 
 - **Source**: `https://github.com/sshaaf/gcc` (public)
-- **Hosting**: Vercel, project `gcc`
+- **Hosting**: Vercel, project `glostrup-cricket-dk`
+- **Production URL**: https://glostrup-cricket-dk.vercel.app
 - **Trigger**: every push to `main` deploys automatically via the Vercel GitHub App
 
 ### Initial setup (already done if you're reading this on a live URL)
