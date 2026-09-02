@@ -39,6 +39,8 @@ export async function Footer() {
             <Link href="/news/bliv-medlem">Bliv Medlem</Link>
             <Link href="/news/scorecards">Scorecards</Link>
             <Link href="/news/klub-info">Klub Info</Link>
+            <Link href="/news/archive">Arkiv</Link>
+            <Link href="/news/statistik-og-scorecards-2019">Statistik</Link>
           </div>
 
           <div className="footer-col">
